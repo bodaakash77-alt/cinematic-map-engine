@@ -1,0 +1,22 @@
+{
+  "name": "@workspace/remotion-studio",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio --port 3000",
+    "build": "remotion bundle",
+    "render": "remotion render MyComp"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.494",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "remotion": "4.0.494",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "typescript": "~5.9.3"
+  }
+}
