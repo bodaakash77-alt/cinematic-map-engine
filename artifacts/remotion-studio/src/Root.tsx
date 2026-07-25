@@ -11,6 +11,7 @@ import {MapAnimationComp}     from './compositions/MapAnimation';
 import {ImageParallaxComp}    from './compositions/ImageParallax';
 import {VideoSequenceComp}    from './compositions/VideoSequence';
 import {ParticleSceneComp}    from './compositions/ParticleScene';
+import {USTradeDocumentary}  from './compositions/USTradeDocumentary';
 
 const W = 1920;
 const H = 1080;
@@ -80,6 +81,16 @@ export const Root: React.FC = () => {
         id="VideoSequence"
         component={VideoSequenceComp}
         durationInFrames={300}
+        fps={FPS}
+        width={W}
+        height={H}
+      />
+
+      {/* ── U.S. trade documentary map sequence ───────────────────── */}
+      <Composition
+        id="USTradeDocumentary"
+        component={USTradeDocumentary}
+        durationInFrames={450}
         fps={FPS}
         width={W}
         height={H}
