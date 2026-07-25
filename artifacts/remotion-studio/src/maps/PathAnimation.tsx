@@ -1,5 +1,5 @@
-import React, {useRef} from 'react';
-import {useCurrentFrame, useVideoConfig} from 'remotion';
+import React, {useId} from 'react';
+import {useCurrentFrame} from 'remotion';
 import {interpolate} from 'remotion';
 
 export interface PathPoint {
@@ -65,7 +65,7 @@ export const PathAnimation: React.FC<PathAnimationProps> = ({
   smooth = true,
 }) => {
   const frame = useCurrentFrame();
-  const {width, height} = useVideoConfig();
+  const pathId = `anim-path-${useId().replace(/:/g, '')}`;
 
   const progress = interpolate(frame, [startFrame, startFrame + duration], [0, 1], {
     extrapolateLeft: 'clamp',
@@ -106,13 +106,13 @@ export const PathAnimation: React.FC<PathAnimationProps> = ({
     <g>
       {/* Reference path for stroke-dasharray trick */}
       <defs>
-        <path id="anim-path" d={pathD} />
+        <path id={pathId} d={pathD} />
       </defs>
 
       {/* Full path (dim trail) */}
       {trailColor && (
         <use
-          href="#anim-path"
+          href={`#${pathId}`}
           fill="none"
           stroke={trailColor}
           strokeWidth={strokeWidth * 0.5}
